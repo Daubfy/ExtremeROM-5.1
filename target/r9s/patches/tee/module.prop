@@ -1,4 +1,4 @@
 id=tee
-name=TEE blobs
-author=utkustnr
-description=Adds back Android 15 TEE blobs.
+name=TEE downgrade
+author=Daubfy
+description=Downgrades TEEgris Firmware to G990EXXSIGYI3
