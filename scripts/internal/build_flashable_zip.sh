@@ -492,6 +492,10 @@ SIGN_IMAGE_WITH_AVB()
         PARTITION_NAME="$(basename "$FILE")"
         PARTITION_NAME="${PARTITION_NAME//.img/}"
 
+        if [[ "$PARTITION_NAME" == *"-sign" ]]; then
+            return 0
+        fi
+
         local PARTITION_SIZE
         PARTITION_SIZE="TARGET_$(tr "[:lower:]" "[:upper:]" <<< "$PARTITION_NAME")_PARTITION_SIZE"
         _CHECK_NON_EMPTY_PARAM "$PARTITION_SIZE" "${!PARTITION_SIZE//none/}" || exit 1
