@@ -1,3 +1,3 @@
 cp -fa "$SRC_DIR/target/r9s/patches/proton/img/boot.img" "$WORK_DIR/kernel/boot.img"
 cp -fa "$SRC_DIR/target/r9s/patches/proton/img/vendor_boot.img" "$WORK_DIR/kernel/vendor_boot.img"
-cp -fa "$SRC_DIR/target/r9s/patches/proton/img/vendor_boot.img" "$WORK_DIR/kernel/dtbo.img"
+cp -fa "$SRC_DIR/target/r9s/patches/proton/img/dtbo.img" "$WORK_DIR/kernel/dtbo.img"
