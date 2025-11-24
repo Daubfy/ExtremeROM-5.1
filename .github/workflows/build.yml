@@ -2,8 +2,6 @@ name: Build
 
 on:
   workflow_dispatch:
-  pull_request:
-  push:
     branches:
       - 'sixteen'
 
@@ -14,11 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-<<<<<<< HEAD
-        target: [a52sxq, a73xq, m52xq]
-=======
-        target: [a52q, a52sxq, a52xq, a71, a72q, a73xq, b0q, dm1q, dm2q, dm3q, g0q, m52xq, r0q, r8q, r9q, r9q2, r9s]
->>>>>>> 84f5d9cd (Update r9s patches, TEE configs, props)
+        target: [r9s, o1s]
 
     steps:
       - name: Checkout repo
