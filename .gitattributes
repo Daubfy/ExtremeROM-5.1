@@ -27,4 +27,3 @@ target/a52sxq/patches/wpss/vendor/firmware/** binary
 target/a73xq/patches/wpss/vendor/firmware/** binary
 target/m52xq/patches/wpss/vendor/firmware/** binary
 target/r9s/patches/*/vendor/*/** binary
-target/r9s/patches/proton/img/** binary
