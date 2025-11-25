@@ -16,6 +16,9 @@
   <a href="https://t.me/unicarom">💬 Telegram</a>
 </p>
 
+# CREDITS
+thanks to majaahh, salvogiangri, extremext for helping me making the r9s target
+
 # What is UN1CA?
 UN1CA is a work-in-progress custom firmware for Samsung Galaxy devices, designed to provide a refined, optimized and more rich One UI experience.
 It is based on the latest and greatest iteration of Samsung's UX and it integrates numerous improvements, optimizations and exclusive features.
