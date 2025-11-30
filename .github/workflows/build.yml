@@ -2,8 +2,6 @@ name: Build
 
 on:
   workflow_dispatch:
-  pull_request:
-  push:
     branches:
       - 'sixteen'
 
@@ -14,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [a52sxq, a73xq, m52xq]
+        target: [r9s]
 
     steps:
       - name: Checkout repo
@@ -76,4 +74,51 @@ jobs:
       - name: Build ROM
         run: |
           source ./buildenv.sh ${{ matrix.target }}
-          ./scripts/make_rom.sh --no-rom-zip
+          ./scripts/make_rom.sh 
+
+      - name: Upload to GoFile
+        id: gofile
+        run: |
+          ZIP_FILE=$(find out -maxdepth 1 -type f -name "*.zip" | head -n 1)
+
+          RESPONSE=$(curl -s -F "file=@$ZIP_FILE" "https://upload-na-phx.gofile.io/uploadFile")
+
+          DOWNLOAD_URL=$(echo "$RESPONSE" | jq -r '.data.downloadPage')
+
+          echo "download_url=$DOWNLOAD_URL" >> $GITHUB_OUTPUT
+          echo "zip_file=$ZIP_FILE" >> $GITHUB_OUTPUT
+
+          echo "Uploaded successfully! Download link:"
+          echo "$DOWNLOAD_URL"
+
+          echo "MD5:"
+          md5sum "$ZIP_FILE"
+
+          echo "SHA256:"
+          sha256sum "$ZIP_FILE"
+
+      - name: Notify Telegram
+        run: |
+          ZIP_FILE="${{ steps.gofile.outputs.zip_file }}"
+
+          FILE_NAME=$(basename "$ZIP_FILE")
+          FILE_SIZE=$(stat -c%s "$ZIP_FILE" || echo "0")
+          CODENAME="${{ matrix.target }}"
+          MD5_HASH=$(md5sum "$ZIP_FILE" | awk '{print $1}')
+          SHA256_HASH=$(sha256sum "$ZIP_FILE" | awk '{print $1}')
+
+          DOWNLOAD_URL="${{ steps.gofile.outputs.download_url }}"
+
+          MESSAGE="**Build completed successfully.**%0A%0A"
+          MESSAGE+="**Codename:** \`${CODENAME}\`%0A"
+          MESSAGE+="**File name:** \`${FILE_NAME}\`%0A"
+          MESSAGE+="**File size:** \`${FILE_SIZE} bytes\`%0A"
+          MESSAGE+="**MD5:** \`${MD5_HASH}\`%0A"
+          MESSAGE+="**SHA256:** \`${SHA256_HASH}\`%0A%0A"
+          MESSAGE+="**Download link:**%0A${DOWNLOAD_URL}"
+
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -d chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" \
+            -d text="$MESSAGE" \
+            -d parse_mode=Markdown
+
