@@ -1,3 +1,4 @@
+set -x
 if [ "$TARGET_PRODUCT_SHIPPING_API_LEVEL" -ge "33" ]; then
     LOG "\033[0;33m! Nothing to do\033[0m"
     return 0
