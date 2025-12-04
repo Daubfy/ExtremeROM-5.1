@@ -62,6 +62,8 @@ Any form of contribution, suggestions, bug report or feature request for the pro
 - Auto PIN confirm with 4 digits
 - [BluetoothLibraryPatcher](https://github.com/3arthur6/BluetoothLibraryPatcher) integrated
 - [KnoxPatch](https://github.com/salvogiangri/KnoxPatch) integrated
+- China Device Care app included
+- AppLock included
 - Extra CSC features enabled (Call recording, Hiya, Network speed in status bar, AltZLife)
 
 \* Not available on MediaTek devices<br>
