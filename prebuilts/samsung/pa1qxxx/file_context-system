@@ -13,8 +13,6 @@
 /system/priv-app/SmartManagerCN/SmartManagerCN\.apk u:object_r:system_file:s0
 /system/app/SmartManager_v6_DeviceSecurity_CN u:object_r:system_file:s0
 /system/app/SmartManager_v6_DeviceSecurity_CN/SmartManager_v6_DeviceSecurity_CN\.apk u:object_r:system_file:s0
-/system/priv-app/SAppLock u:object_r:system_file:s0
-/system/priv-app/SAppLock/SAppLock\.apk u:object_r:system_file:s0
 /system/priv-app/Firewall u:object_r:system_file:s0
 /system/priv-app/Firewall/Firewall\.apk u:object_r:system_file:s0
 
