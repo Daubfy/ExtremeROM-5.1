@@ -12,7 +12,7 @@ ADD_TO_WORK_DIR "pa1qxxx" "system" \
 ADD_TO_WORK_DIR "pa1qxxx" "system" \
     "system/etc/permissions/signature-permissions-com.samsung.android.sm_cn.xml" 0 0 644 "u:object_r:system_file:s0"
 [ ! -f "$WORK_DIR/system/system/priv-app/SAppLock/SAppLock.apk" ] && \
-    ADD_TO_WORK_DIR "pa1qxxx" "system" "system/priv-app/SAppLock" 0 0 755 "u:object_r:system_file:s0"
+    ADD_TO_WORK_DIR "pa1qxxx" "system" "system/priv-app/AppLock" 0 0 755 "u:object_r:system_file:s0"
 ADD_TO_WORK_DIR "pa1qxxx" "system" "system/priv-app/SmartManagerCN" 0 0 755 "u:object_r:system_file:s0"
 ADD_TO_WORK_DIR "pa1qxxx" "system" "system/priv-app/Firewall" 0 0 755 "u:object_r:system_file:s0"
 ADD_TO_WORK_DIR "pa1qxxx" "system" "system/app/SmartManager_v6_DeviceSecurity_CN" 0 0 755 "u:object_r:system_file:s0"
