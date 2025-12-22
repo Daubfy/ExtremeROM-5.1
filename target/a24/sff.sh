@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# SEC Floating Feature configuration file for Galaxy A34 5G (a34x)
+# SEC Floating Feature configuration file for Galaxy A24 (a24)
 
 # Enable seamless refresh rate feature
 SEC_FLOATING_FEATURE_LCD_CONFIG_HFR_MODE=2

@@ -1,0 +1,7 @@
+if (getprop("ro.boot.em.model") == "SM-A245F" && getprop("ro.boot.bootloader") != "A245FXXS9DYG1") then
+abort ("E3003: This package requires the \"A245FXXS9DYG1\" firmware installed on your device; you have \"" + getprop("ro.bootloader") + "\"");
+endif;
+
+if (getprop("ro.boot.em.model") == "SM-A245M" && getprop("ro.boot.bootloader") != "A245MUBSADYG1") then
+abort ("E3003: This package requires the \"A245MUBSADYG1\" firmware installed on your device; you have \"" + getprop("ro.bootloader") + "\"");
+endif;
