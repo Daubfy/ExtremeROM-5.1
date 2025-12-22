@@ -29,4 +29,3 @@
 [submodule "target/a24/patches/tee"]
 	path = target/a24/patches/tee
 	url = https://github.com/Daubfy/target_a24_patches_tee
-	ignore = dirty
