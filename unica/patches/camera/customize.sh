@@ -22,8 +22,12 @@ if [ -f "$SRC_DIR/target/$TARGET_CODENAME/camera/singletake/service-feature.xml"
     LOG "- Adding /system/system/cameradata/singletake/service-feature.xml"
     EVAL "cp -a \"$SRC_DIR/target/$TARGET_CODENAME/camera/singletake/service-feature.xml\" \"$WORK_DIR/system/system/cameradata/singletake/service-feature.xml\""
 else
-    ADD_TO_WORK_DIR "$TARGET_FIRMWARE" \
-        "system" "system/cameradata/singletake/service-feature.xml" 0 0 644 "u:object_r:system_file:s0"
+    if [ -f "$TARGET_FIRMWARE/system/system/cameradata/singletake/service-feature.xml" ]; then
+        ADD_TO_WORK_DIR "$TARGET_FIRMWARE" \
+            "system" "system/cameradata/singletake/service-feature.xml" 0 0 644 "u:object_r:system_file:s0"
+    else
+        LOG "- Warning: service-feature.xml not found, skipping"
+    fi
 fi
 if [ -f "$SRC_DIR/target/$TARGET_CODENAME/camera/aremoji-feature.xml" ]; then
     LOG "- Adding /system/system/cameradata/aremoji-feature.xml"
