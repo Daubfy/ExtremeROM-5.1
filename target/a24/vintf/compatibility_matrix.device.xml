@@ -1,6 +1,7 @@
 <!--
     Input:
         device/mediatek/system/common/device_framework_matrix.xml
+        vendor/samsung/interfaces/camera/provider/4.0/framework_compatibility_matrix.xml
         vendor/samsung/interfaces/security/engmode/1.0/framework_compatibility_matrix.xml
         vendor/samsung/interfaces/security/vaultkeeper/2.0/framework_compatibility_matrix.xml
         vendor/samsung/interfaces/security/hdcp/wifidisplay/aidl/framework_compatibility_matrix.xml
@@ -12,7 +13,7 @@
         vendor/samsung/interfaces/vibrator/aidl/framework_compatibility_matrix.xml
         vendor/samsung/interfaces/tlc/hdm/1.2/vendor.samsung.hardware.tlc.hdm@1.2-matrix.xml
         vendor/samsung/interfaces/tlc/payment/1.0/tlc_payment_compatibility_matrix.xml
-        vendor/samsung/interfaces/tlc/iccc/aidl/vendor.samsung.hardware.tlc.iccc-matrix.xml
+        vendor/samsung/interfaces/tlc/iccc/1.0/vendor.samsung.hardware.tlc.iccc@1.0-matrix.xml
         vendor/samsung/interfaces/tlc/mpos_tui/1.0/vendor.samsung.hardware.tlc.mpos_tui@1.0-matrix.xml
         vendor/samsung/interfaces/tlc/kg/2.0/aidl/vendor.samsung.hardware.tlc.kg-matrix.xml
         vendor/samsung/interfaces/audio/aidl/framework_compatibility_matrix.xml
@@ -34,7 +35,7 @@
         vendor/samsung/interfaces/snap/aidl/framework_compatibility_matrix.xml
         vendor/samsung/interfaces/bluetooth/aidl/framework_compatibility_matrix.xml
         vendor/samsung/interfaces/bluetooth/audio/aidl/framework_compatibility_matrix.xml
-        vendor/samsung/interfaces/gnss/aidl/aidl_manifest/framework_compatibility_matrix_gnss_aidl_IGnssV4_ISehGnssV4.xml
+        vendor/samsung/interfaces/gnss/aidl/aidl_manifest/framework_compatibility_matrix_gnss_aidl_IGnssV6_ISehGnssV4.xml
         vendor/samsung/interfaces/nfc/aidl/device_framework_compatibility_matrix.xml
         vendor/samsung/hardware/ril/URC/fcm/radio_framework_compatibility_matrix.xml
 -->
@@ -76,16 +77,17 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl">
+    <hal format="hidl">
         <name>android.hardware.camera.provider</name>
+        <version>2.6</version>
         <interface>
             <name>ICameraProvider</name>
-            <instance>internal/0</instance>
+            <instance>legacy/0</instance>
         </interface>
     </hal>
     <hal format="aidl">
         <name>android.hardware.gnss</name>
-        <version>4</version>
+        <version>6</version>
         <interface>
             <name>IGnss</name>
             <instance>default</instance>
@@ -1394,6 +1396,22 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.samsung.hardware.camera.provider</name>
+        <version>4.0</version>
+        <interface>
+            <name>ISehCameraProvider</name>
+            <instance>legacy/0</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.samsung.hardware.camera.provider</name>
+        <version>4.0</version>
+        <interface>
+            <name>ISehCameraProvider</name>
+            <regex-instance>[^/]+/[0-9]+</regex-instance>
+        </interface>
+    </hal>
     <hal format="aidl">
         <name>vendor.samsung.hardware.gnss</name>
         <version>3-4</version>
@@ -1659,9 +1677,9 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl">
+    <hal format="hidl">
         <name>vendor.samsung.hardware.tlc.iccc</name>
-        <version>3</version>
+        <version>1.0</version>
         <interface>
             <name>ISehIccc</name>
             <instance>default</instance>
