@@ -1,0 +1,4 @@
+id=kernel
+name=StockKernel
+author=Daubfy
+description=Replaces stock kernel with a patched one with binary verifications disabled
