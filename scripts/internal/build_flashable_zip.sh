@@ -437,6 +437,7 @@ while read -r i; do
     PARTITION=$(basename "$i")
     [[ "$PARTITION" == "configs" ]] && continue
     [[ "$PARTITION" == "kernel" ]] && continue
+    
     [ -f "$TMP_DIR/$PARTITION.img" ] && rm -f "$TMP_DIR/$PARTITION.img"
     [ -f "$WORK_DIR/$PARTITION.img" ] && rm -f "$WORK_DIR/$PARTITION.img"
 
@@ -444,6 +445,11 @@ while read -r i; do
     bash "$SRC_DIR/scripts/build_fs_image.sh" "$TARGET_OS_FILE_SYSTEM+sparse" "$WORK_DIR/$PARTITION" \
         "$WORK_DIR/configs/file_context-$PARTITION" "$WORK_DIR/configs/fs_config-$PARTITION" > /dev/null 2>&1
     mv "$WORK_DIR/$PARTITION.img" "$TMP_DIR/$PARTITION.img"
+
+if [[ "$PARTITION" == "vendor_dlkm" ]] && [ -f "/home/ubuntu/UN1CA-13/target/a24/patches/kernel/img/vendor_dlkm.img" ]; then
+        echo "Replacing $PARTITION.img in TMP_DIR with custom version from target/a24/..."
+        cp "/home/ubuntu/UN1CA-13/target/a24/patches/kernel/img/vendor_dlkm.img" "$TMP_DIR/$PARTITION.img"
+    fi
 done <<< "$(find "$WORK_DIR" -mindepth 1 -maxdepth 1 -type d)"
 
 echo "Building unsparse_super_empty.img"
