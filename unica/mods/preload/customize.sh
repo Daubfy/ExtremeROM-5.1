@@ -1,6 +1,12 @@
+LOG() { echo "[*] $@"; }
 KERNELSU_MANAGER_APK="https://github.com/KernelSU-Next/KernelSU-Next/releases/download/v1.1.1/KernelSU_Next_v1.1.1_12851-release.apk"
 # https://github.com/tiann/KernelSU/issues/886
 APK_PATH="system/preload/KernelSU-Next/com.rifsxd.ksunext-mesa==/base.apk"
+
+# Patched GoodLock Manager @corsicanu
+# https://github.com/corsicanu/goodlock_dump
+DOWNLOAD_FILE "https://github.com/corsicanu/goodlock_dump/raw/main/GoodLock_patched.apk" \
+    "$WORK_DIR/system/system/preload/GoodLock/GoodLock.apk"
 
 LOG "- Adding KernelSU-Next.apk to preload apps"
 mkdir -p "$WORK_DIR/system/$(dirname "$APK_PATH")"
