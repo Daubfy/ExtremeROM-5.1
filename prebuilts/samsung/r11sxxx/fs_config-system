@@ -4,3 +4,5 @@ system/priv-app/BiometricSetting 0 0 755 capabilities=0x0
 system/priv-app/BiometricSetting/BiometricSetting.apk 0 0 644 capabilities=0x0
 system/priv-app/SamsungCamera 0 0 755 capabilities=0x0
 system/priv-app/SamsungCamera/SamsungCamera.apk 0 0 644 capabilities=0x0
+system/priv-app/wallpaper-res 0 0 755 capabilities=0x0
+system/priv-app/wallpaper-res/wallpaper-res.apk 0 0 644 capabilities=0x0

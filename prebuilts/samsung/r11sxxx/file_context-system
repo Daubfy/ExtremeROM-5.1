@@ -4,3 +4,5 @@
 /system/priv-app/BiometricSetting/BiometricSetting\.apk u:object_r:system_file:s0
 /system/priv-app/SamsungCamera u:object_r:system_file:s0
 /system/priv-app/SamsungCamera/SamsungCamera\.apk u:object_r:system_file:s0
+/system/priv-app/wallpaper-res u:object_r:system_file:s0
+/system/priv-app/wallpaper-res/wallpaper-res\.apk u:object_r:system_file:s0
