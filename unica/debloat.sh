@@ -20,26 +20,6 @@
 # - DO NOT add the partition name at the start of any entry (eg. "/system/dpolicy_system")
 # - DO NOT add a slash at the start of any entry (eg. "/dpolicy_system")
 
-# Samsung Defex policy
-SYSTEM_DEBLOAT+="
-dpolicy_system
-"
-VENDOR_DEBLOAT+="
-etc/dpolicy
-"
-
-# Samsung SIM Unlock
-SYSTEM_DEBLOAT+="
-system/bin/ssud
-system/etc/init/ssu_dm1qxxx.rc
-system/etc/init/ssu.rc
-system/etc/permissions/privapp-permissions-com.samsung.ssu.xml
-system/etc/sysconfig/samsungsimunlock.xml
-system/lib64/android.security.securekeygeneration-ndk.so
-system/lib64/libssu_keystore2.so
-system/priv-app/SsuService
-"
-
 # Recovery restoration script
 VENDOR_DEBLOAT+="
 recovery-from-boot.p
@@ -58,6 +38,7 @@ app/YouTube
 overlay/GmsConfigOverlaySearchSelector.apk
 priv-app/Messages
 priv-app/SearchSelector
+priv-app/Velvet
 "
 SYSTEM_DEBLOAT+="
 system/app/AutomationTest_FB
