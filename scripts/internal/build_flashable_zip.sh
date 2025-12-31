@@ -54,7 +54,7 @@ PRINT_HEADER()
     echo    'ui_print(" ");'
     echo    'ui_print("****************************************");'
     echo -n 'ui_print("'
-    echo -n "UN1CA $ROM_VERSION for $TARGET_NAME"
+    echo -n "ExtremeROM $ROM_VERSION for $TARGET_NAME"
     echo    '");'
     echo    'ui_print("Coded by salvo_giangri @XDAforums");'
     echo    'ui_print("****************************************");'
@@ -422,7 +422,7 @@ GENERATE_BUILD_INFO()
     true
 }
 
-FILE_NAME="UN1CA_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
+FILE_NAME="ExtremeROM_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}"
 CERT_NAME="aosp_testkey"
 $ROM_IS_OFFICIAL && [ -f "$SRC_DIR/security/unica_ota.pk8" ] && CERT_NAME="unica_ota"
 # ]
@@ -446,10 +446,10 @@ while read -r i; do
         "$WORK_DIR/configs/file_context-$PARTITION" "$WORK_DIR/configs/fs_config-$PARTITION" > /dev/null 2>&1
     mv "$WORK_DIR/$PARTITION.img" "$TMP_DIR/$PARTITION.img"
 
-if [[ "$PARTITION" == "vendor_dlkm" ]] && [ -f "/home/ubuntu/UN1CA-13/target/a24/patches/kernel/img/vendor_dlkm.img" ]; then
-        echo "Replacing $PARTITION.img in TMP_DIR with custom version from target/a24/..."
-        cp "/home/ubuntu/UN1CA-13/target/a24/patches/kernel/img/vendor_dlkm.img" "$TMP_DIR/$PARTITION.img"
-    fi
+if [[ "$PARTITION" == "vendor_dlkm" ]] && [ -f "$HOME/ExtremeROM/target/a24/patches/kernel/img/vendor_dlkm.img" ]; then
+    echo "Replacing $PARTITION.img in TMP_DIR with custom version from target/a24/..."
+    cp "$HOME/ExtremeROM/target/a24/patches/kernel/img/vendor_dlkm.img" "$TMP_DIR/$PARTITION.img"
+fi
 done <<< "$(find "$WORK_DIR" -mindepth 1 -maxdepth 1 -type d)"
 
 echo "Building unsparse_super_empty.img"
