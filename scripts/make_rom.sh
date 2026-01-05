@@ -87,7 +87,6 @@ if $BUILD_ROM; then
         bash "$SRC_DIR/scripts/download_fw.sh"
         bash "$SRC_DIR/scripts/extract_fw.sh"
     fi
-    read -p "Breakpoint after extracting the firmware Detected! Press Enter to continue..."
 
     echo -e "- Creating work dir..."
     bash "$SRC_DIR/scripts/internal/create_work_dir.sh"
@@ -102,12 +101,11 @@ if $BUILD_ROM; then
 
     #echo -e "\n- Recompiling APKs/JARs..."
     #while read -r i; do
-        #bash "$SRC_DIR/scripts/apktool.sh" b "$i"
-    #done <<< "$(find "$OUT_DIR/apktool" -type d \( -name "*.apk" -o -name "*.jar" \) -printf "%p\n" | sed "s.$OUT_DIR/apktool..")"
+    #    bash "$SRC_DIR/scripts/apktool.sh" b "$i"
+   # done <<< "$(find "$OUT_DIR/apktool" -type d \( -name "*.apk" -o -name "*.jar" \) -printf "%p\n" | sed "s.$OUT_DIR/apktool..")"
 
     echo ""
     echo -n "$WORK_DIR_HASH" > "$WORK_DIR/.completed"
-    read -p "Breakpoint after creating the workdir Detected! Press Enter to continue..."
 else
     echo -e "- Nothing to do in work dir.\n"
 fi
