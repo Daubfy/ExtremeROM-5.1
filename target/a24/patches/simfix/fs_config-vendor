@@ -1,3 +1,8 @@
-vendor/bin/simfix.sh      0 2000 755 capabilities=0x0
-vendor/etc/init/simfix.rc 0 0    644 capabilities=0x0
-
+ 0 2000 755 capabilities=0x0
+vendor/etc 0 2000 755 capabilities=0x0
+vendor/bin 0 2000 755 capabilities=0x0
+vendor/etc/init 0 2000 755 capabilities=0x0
+vendor/etc/selinux 0 2000 755 capabilities=0x0
+vendor/etc/init/simfix.rc 0 0 755 capabilities=0x0
+vendor/bin/simfix.sh 0 2000 755 capabilities=0x0
+vendor/etc/selinux/vendor_sepolicy.cil 0 0 644 capabilities=0x0
