@@ -120,8 +120,6 @@ elif $BUILD_TAR; then
     echo ""
 fi
 
-fi
-
 ESTIMATED=$((SECONDS-START))
 echo "Build completed in $((ESTIMATED / 3600))hrs $(((ESTIMATED / 60) % 60))min $((ESTIMATED % 60))sec."
 
