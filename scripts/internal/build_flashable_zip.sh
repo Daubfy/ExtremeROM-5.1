@@ -446,9 +446,9 @@ while read -r i; do
         "$WORK_DIR/configs/file_context-$PARTITION" "$WORK_DIR/configs/fs_config-$PARTITION" > /dev/null 2>&1
     mv "$WORK_DIR/$PARTITION.img" "$TMP_DIR/$PARTITION.img"
 
-if [[ "$PARTITION" == "vendor_dlkm" ]] && [ -f "$HOME/ExtremeROM/target/a24/patches/kernel/img/vendor_dlkm.img" ]; then
+if [[ "$PARTITION" == "vendor_dlkm" ]] && [ -f "$HOME/UN1CA/target/a24/patches/kernel/img/vendor_dlkm.img" ]; then
     echo "Replacing $PARTITION.img in TMP_DIR with custom version from target/a24/..."
-    cp "$HOME/ExtremeROM/target/a24/patches/kernel/img/vendor_dlkm.img" "$TMP_DIR/$PARTITION.img"
+    cp "$HOME/UN1CA/target/a24/patches/kernel/img/vendor_dlkm.img" "$TMP_DIR/$PARTITION.img"
 fi
 done <<< "$(find "$WORK_DIR" -mindepth 1 -maxdepth 1 -type d)"
 
