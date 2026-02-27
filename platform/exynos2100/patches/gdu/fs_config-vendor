@@ -1,0 +1,20 @@
+ 0 2000 755 capabilities=0x0
+vendor/lib 0 2000 755 capabilities=0x0
+vendor/lib64 0 2000 755 capabilities=0x0
+vendor/etc 0 2000 755 capabilities=0x0
+vendor/etc/permissions 0 2000 755 capabilities=0x0
+vendor/etc/permissions/android.hardware.vulkan.compute.xml 0 0 644 capabilities=0x0
+vendor/etc/permissions/android.hardware.vulkan.level.xml 0 0 644 capabilities=0x0
+vendor/etc/permissions/android.hardware.vulkan.version.xml 0 0 644 capabilities=0x0
+vendor/etc/permissions/android.hardware.vulkan.deqp.level.xml 0 0 644 capabilities=0x0
+vendor/lib 0 2000 755 capabilities=0x0
+vendor/lib64 0 2000 755 capabilities=0x0
+vendor/lib/egl 0 2000 755 capabilities=0x0
+vendor/lib/egl/libGLES_mali.so 0 0 644 capabilities=0x0
+vendor/lib/hw 0 2000 755 capabilities=0x0
+vendor/lib/hw/vulkan.mali.so 0 0 644 capabilities=0x0
+vendor/lib64/egl 0 2000 755 capabilities=0x0
+vendor/lib64/egl/libGLES_mali.so 0 0 644 capabilities=0x0
+vendor/lib64/hw 0 2000 755 capabilities=0x0
+vendor/lib64/hw/vulkan.mali.so 0 0 644 capabilities=0x0
+

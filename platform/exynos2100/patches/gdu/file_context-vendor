@@ -1,0 +1,17 @@
+/vendor u:object_r:vendor_file:s0
+/vendor/etc u:object_r:vendor_file:s0
+/vendor/etc/permissions u:object_r:vendor_file:s0
+/vendor/etc/permissions/android.hardware.vulkan.compute\.xml u:object_r:vendor_file:s0
+/vendor/etc/permissions/android.hardware.vulkan.level\.xml u:object_r:vendor_file:s0
+/vendor/etc/permissions/android.hardware.vulkan.version\.xml u:object_r:vendor_file:s0
+/vendor/etc/permissions/android.hardware.vulkan.deqp.level\.xml u:object_r:vendor_file:s0
+/vendor/lib u:object_r:vendor_file:s0
+/vendor/lib64 u:object_r:vendor_file:s0
+/vendor/lib/egl u:object_r:vendor_file:s0
+/vendor/lib/egl/libGLES_mali\.so u:object_r:vendor_file:s0
+/vendor/lib/hw u:object_r:vendor_file:s0
+/vendor/lib/hw/vulkan.mali\.so u:object_r:vendor_file:s0
+/vendor/lib64/egl u:object_r:vendor_file:s0
+/vendor/lib64/egl/libGLES_mali\.so u:object_r:vendor_file:s0
+/vendor/lib64/hw u:object_r:vendor_file:s0
+/vendor/lib64/hw/vulkan.mali\.so u:object_r:vendor_file:s0
