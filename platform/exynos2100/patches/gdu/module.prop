@@ -1,0 +1,4 @@
+id=gdu
+name=Exynos 2100 GPU Driver Update (r38p1)
+author=EliteUI
+description=Updates Mali G78 blobs to r38p1. Extracted from Exynos 1080.
