@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - 'sixteen'
+      - 'sixteen-custom'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -80,4 +80,26 @@ jobs:
       - name: Build ROM
         run: |
           source ./buildenv.sh ${{ matrix.target }}
-          ./scripts/make_rom.sh
+          ./scripts/make_rom.sh -z
+
+      - name: Download PixelDrain CLI (pd)
+        run: |
+          curl -L https://github.com/jkawamoto/go-pixeldrain/releases/download/v0.7.6/pd_0.7.6_linux_amd64.tar.gz -o pd.tar.gz
+          tar -xvf pd.tar.gz
+          chmod +x pd
+          sudo mv pd /usr/local/bin/pd
+          
+      - name: Upload ROM to PixelDrain
+        env:
+         PIXELDRAIN_API_KEY: ${{ secrets.PIXELDRAIN_API_KEY }}
+        run: |
+          cd out
+          ROM_FILE=$(ls UN1CA*.zip 2>/dev/null | head -n 1)
+
+          if [ -z "$ROM_FILE" ]; then
+            echo "No ROM zip found!"
+            exit 1
+          fi
+
+          echo "Uploading $ROM_FILE to PixelDrain..."
+          pd --api-key "$PIXELDRAIN_API_KEY" upload "$ROM_FILE" | sed 's|api/file|u|g'
