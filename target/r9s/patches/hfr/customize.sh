@@ -11,3 +11,5 @@ EVAL "sed -i \"/set_idle_timer_ms/a ro.surface_flinger.set_touch_timer_ms=$TOUCH
 SET_PROP "vendor" "ro.surface_flinger.enable_frame_rate_override" "true"
 
 unset IDLE_TIMER_MS TOUCH_TIMER_MS
+
+cp -fa "$SRC_DIR/target/r9s/patches/hfr/img/dtbo.img" "$WORK_DIR/kernel/dtbo.img"
