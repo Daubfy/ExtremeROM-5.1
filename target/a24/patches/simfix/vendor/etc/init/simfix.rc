@@ -1,0 +1,13 @@
+# Helio G99 SIM Fix - Vendor init service
+# @Neel0210
+
+service simfix /vendor/bin/simfix.sh
+    class late_start
+    user root
+    group radio
+    disabled
+    restart_period 60
+
+# Start only after vendor RIL is confirmed running
+on property:init.svc.vendor.ril-daemon=running
+    start simfix
