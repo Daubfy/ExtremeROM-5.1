@@ -2,12 +2,6 @@ name: Build
 
 on:
   workflow_dispatch:
-    inputs:
-     upload_cloud:
-      description: 'Upload ROM to cloud (PixelDrain)'
-      required: false
-      default: true
-      type: boolean
   pull_request:
   push:
     branches:
@@ -97,7 +91,6 @@ jobs:
           sudo mv pd /usr/local/bin/pd
           
       - name: Upload ROM to PixelDrain
-        if: ${{ inputs.upload_cloud }}
         env:
           PIXELDRAIN_API_KEY: ${{ secrets.PIXELDRAIN_API_KEY }}
         run: |
