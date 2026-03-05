@@ -26,6 +26,12 @@ else
     ADD_TO_WORK_DIR "a56xnaxx" "system" "system/etc/ringtones_count_list.txt" 0 0 644 "u:object_r:system_file:s0"
     ADD_TO_WORK_DIR "a56xnaxx" "system" "system/media/audio/notifications" 0 0 755 "u:object_r:system_file:s0"
     ADD_TO_WORK_DIR "a56xnaxx" "system" "system/media/audio/ringtones" 0 0 755 "u:object_r:system_file:s0"
+# ui5 unlock, charging sounds
+    ADD_TO_WORK_DIR "r8qxxx" "system" "system/media/audio/notifications/SoundTheme/Galaxy/Spaceline.ogg" 0 0 644 "u:object_r:system_file:s0"
+    ADD_TO_WORK_DIR "r8qxxx" "system" "system/media/audio/ui/ChargingStarted.ogg" 0 0 644 "u:object_r:system_file:s0"
+    ADD_TO_WORK_DIR "r8qxxx" "system" "system/media/audio/ui/ChargingStarted_Fast.ogg" 0 0 644 "u:object_r:system_file:s0"
+    ADD_TO_WORK_DIR "r8qxxx" "system" "system/media/audio/ui/Lock.ogg" 0 0 644 "u:object_r:system_file:s0"
+    ADD_TO_WORK_DIR "r8qxxx" "system" "system/media/audio/ui/Unlock.ogg" 0 0 644 "u:object_r:system_file:s0"
     SET_PROP "vendor" "ro.config.ringtone" "Galaxy_Bells.ogg"
     SET_PROP "vendor" "ro.config.notification_sound" "Brightline.ogg"
     SET_PROP "vendor" "ro.config.alarm_alert" "Morning_Xylophone.ogg"

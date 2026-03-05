@@ -1,0 +1,13 @@
+system 0 0 755 capabilities=0x0
+system/media 0 0 755 capabilities=0x0
+system/media/audio 0 0 755 capabilities=0x0
+system/media/audio/notifications 0 0 755 capabilities=0x0
+system/media/audio/notifications/SoundTheme 0 0 755 capabilities=0x0
+system/media/audio/notifications/SoundTheme/Galaxy 0 0 755 capabilities=0x0
+system/media/audio/notifications/SoundTheme/Galaxy/Spaceline\.ogg 0 0 644 capabilities=0x0
+system/media/audio/ui 0 0 755 capabilities=0x0
+system/media/audio/ui/ChargingStarted\.ogg u:0 0 644 capabilities=0x0
+system/media/audio/ui/ChargingStarted_Fast\.ogg 0 0 644 capabilities=0x0
+system/media/audio/ui/Lock\.ogg 0 0 644 capabilities=0x0
+system/media/audio/ui/Unlock\.ogg 0 0 644 capabilities=0x0
+
