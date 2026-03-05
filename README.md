@@ -85,6 +85,12 @@ Any form of contribution, suggestions, bug report or feature request for the pro
 - Unlimited backup storage on Google Photos
 - Games FPS unlock toggle
 
+### S21 Series (Exynos 2100) features:
+- [Proton+ Kernel](https://github.com/ProtonKernel/Proton/tree/proton-ebpf-backport) integrated
+- Updated GPU Drivers
+- (r9s) Fixed adaptive hz flickering (thanks to [Fred](https://github.com/xfwdrev))
+
+
 \* Requires a valid keybox
 
 # Licensing
