@@ -1,3 +1,10 @@
+KERNELSU_MANAGER_APK="https://github.com/KernelSU-Next/KernelSU-Next/releases/download/v3.1.0/KernelSU_Next_v3.1.0_33024-release.apk"
+APK_PATH="system/preload/KernelSU-Next/com.rifsxd.ksunext-mesa==/base.apk"
+
+LOG "- Adding KernelSU-Next.apk to preload apps"
+mkdir -p "$WORK_DIR/system/$(dirname "$APK_PATH")"
+DOWNLOAD_FILE "$KERNELSU_MANAGER_APK" "$WORK_DIR/system/$APK_PATH"
+
 # Samsung Internet Browser
 # https://play.google.com/store/apps/details?id=com.sec.android.app.sbrowser
 LOG "- Downloading Samsung Internet app"
