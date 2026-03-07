@@ -1,6 +1,0 @@
- 0 2000 755 capabilities=0x0
-vendor/etc 0 2000 755 capabilities=0x0
-vendor/bin 0 2000 755 capabilities=0x0
-vendor/etc/init 0 2000 755 capabilities=0x0
-vendor/etc/init/sim.rc 0 0 755 capabilities=0x0
-vendor/bin/sim.sh 0 2000 755 capabilities=0x0

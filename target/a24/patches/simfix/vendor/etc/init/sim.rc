@@ -1,9 +1,0 @@
-service simfix /vendor/bin/sim.sh
-    class late_start
-    user root
-    group radio
-    disabled
-    restart_period 60
-
-on property:init.svc.vendor.ril-daemon=running
-    start simfix
