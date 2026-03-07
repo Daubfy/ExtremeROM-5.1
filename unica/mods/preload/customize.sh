@@ -8,9 +8,9 @@ APK_PATH="system/preload/KernelSU-Next/com.rifsxd.ksunext-mesa==/base.apk"
 DOWNLOAD_FILE "https://github.com/corsicanu/goodlock_dump/raw/main/GoodLock_patched.apk" \
     "$WORK_DIR/system/system/preload/GoodLock/GoodLock.apk"
 
-LOG "- Adding KernelSU-Next.apk to preload apps"
-mkdir -p "$WORK_DIR/system/$(dirname "$APK_PATH")"
-DOWNLOAD_FILE "$KERNELSU_MANAGER_APK" "$WORK_DIR/system/$APK_PATH"
+#LOG "- Adding KernelSU-Next.apk to preload apps"
+#mkdir -p "$WORK_DIR/system/$(dirname "$APK_PATH")"
+#DOWNLOAD_FILE "$KERNELSU_MANAGER_APK" "$WORK_DIR/system/$APK_PATH"
 
 sed -i "/system\/preload/d" "$WORK_DIR/configs/fs_config-system"
 sed -i "/system\/preload/d" "$WORK_DIR/configs/file_context-system"
