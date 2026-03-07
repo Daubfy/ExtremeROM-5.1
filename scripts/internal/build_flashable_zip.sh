@@ -446,9 +446,18 @@ while read -r i; do
         "$WORK_DIR/configs/file_context-$PARTITION" "$WORK_DIR/configs/fs_config-$PARTITION" > /dev/null 2>&1
     mv "$WORK_DIR/$PARTITION.img" "$TMP_DIR/$PARTITION.img"
 
-if [[ "$PARTITION" == "vendor_dlkm" ]] && [ -f "$HOME/UN1CA/target/a24/patches/kernel/img/vendor_dlkm.img" ]; then
+REPO_PATH="$(pwd)"
+while [[ "$REPO_PATH" != "/" && ! -f "$REPO_PATH/buildenv.sh" ]]; do
+    REPO_PATH="$(dirname "$REPO_PATH")"
+done
+
+if [ ! -f "$REPO_PATH/buildenv.sh" ]; then
+    REPO_PATH="/home/runner/work/UN1CA/UN1CA"
+fi
+
+if [[ "$PARTITION" == "vendor_dlkm" ]] && [ -f "$REPO_PATH/target/a24/patches/kernel/img/vendor_dlkm.img" ]; then
     echo "Replacing $PARTITION.img in TMP_DIR with custom version from target/a24/..."
-    cp "$HOME/UN1CA/target/a24/patches/kernel/img/vendor_dlkm.img" "$TMP_DIR/$PARTITION.img"
+    cp "$REPO_PATH/target/a24/patches/kernel/img/vendor_dlkm.img" "$TMP_DIR/$PARTITION.img"
 fi
 done <<< "$(find "$WORK_DIR" -mindepth 1 -maxdepth 1 -type d)"
 

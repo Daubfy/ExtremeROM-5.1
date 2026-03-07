@@ -1,7 +1,11 @@
 name: Build
-
 on:
   workflow_dispatch:
+    inputs:
+      samfw_link:
+        description: 'Enter the Direct Download Link from Samfw.com:'
+        required: true
+        
   pull_request:
   push:
     branches:
@@ -14,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [a52q, a52sxq, a52xq, a71, a72q, a73xq, b0q, dm1q, dm2q, dm3q, g0q, m52xq, r0q, r8q, r9q, r9q2]
+        target: [a24]
 
     steps:
       - name: Checkout repo
@@ -66,10 +70,15 @@ jobs:
       - name: Build dependencies
         run: source ./buildenv.sh ${{ matrix.target }}
 
-      - name: Download stock firmwares
+      - name: Download stock firmware
         run: |
           source ./buildenv.sh ${{ matrix.target }}
-          ./scripts/download_fw.sh
+          mkdir -p out/odin/SM-A245F_THL
+          curl -L -o out/odin/SM-A245F_THL/firmware.zip '${{ github.event.inputs.samfw_link }}'
+          unzip out/odin/SM-A245F_THL/firmware.zip -d out/odin/SM-A245F_THL/
+          touch out/odin/SM-A245F_THL/.downloaded
+          rm -rf out/odin/SM-A245F_THL/firmware.zip
+          
 
       - name: Extract stock firmwares
         run: |
@@ -79,4 +88,26 @@ jobs:
       - name: Build ROM
         run: |
           source ./buildenv.sh ${{ matrix.target }}
-          ./scripts/make_rom.sh --no-rom-zip --no-rom-tar
+          ./scripts/make_rom.sh
+
+      - name: Download PixelDrain CLI (pd)
+        run: |
+          curl -L https://github.com/jkawamoto/go-pixeldrain/releases/download/v0.7.6/pd_0.7.6_linux_amd64.tar.gz -o pd.tar.gz
+          tar -xvf pd.tar.gz
+          chmod +x pd
+          sudo mv pd /usr/local/bin/pd
+          
+      - name: Upload ROM to PixelDrain
+        env:
+          PIXELDRAIN_API_KEY: ${{ secrets.PIXELDRAIN_API_KEY }}
+        run: |
+          cd out
+          ROM_FILE=$(ls *.zip | head -n 1)
+
+          if [ -z "$ROM_FILE" ]; then
+            echo "No ROM zip found!"
+            exit 1
+          fi
+
+          echo "Uploading $ROM_FILE to PixelDrain..."
+          pd --api-key "$PIXELDRAIN_API_KEY" upload "$ROM_FILE" | sed 's|api/file|u|g'
