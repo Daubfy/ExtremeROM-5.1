@@ -2,7 +2,5 @@
 /vendor/etc u:object_r:vendor_configs_file:s0
 /vendor/bin u:object_r:vendor_file:s0
 /vendor/etc/init u:object_r:vendor_configs_file:s0
-/vendor/etc/selinux u:object_r:vendor_configs_file:s0
-/vendor/etc/init/simfix\.rc u:object_r:vendor_init_rc_file:s0
-/vendor/bin/simfix\.sh u:object_r:vendor_exec:s0
-/vendor/etc/selinux/vendor_sepolicy\.cil u:object_r:vendor_sepolicy_file:s0
+/vendor/etc/init/sim\.rc u:object_r:vendor_init_rc_file:s0
+/vendor/bin/sim\.sh u:object_r:vendor_exec:s0
